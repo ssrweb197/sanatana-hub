@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Terms & Conditions — Sanatana Hub</title>
+    <meta name="title" content="Terms & Conditions — Sanatana Hub">
+    <meta name="description" content="Read the Terms & Conditions for Sanatana Hub. Understand the rules, guidelines, intellectual property rights, user responsibilities, and terms of service.">
+    <link rel="canonical" href="https://sanatanahub.com/terms.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/terms.html">
+    <meta property="og:title" content="Terms & Conditions — Sanatana Hub">
+    <meta property="og:description" content="Read the Terms & Conditions for Sanatana Hub. Understand the rules, guidelines, intellectual property rights, and user responsibilities.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-terms.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/terms.html">
+    <meta property="twitter:title" content="Terms & Conditions — Sanatana Hub">
+    <meta property="twitter:description" content="Read the Terms & Conditions for Sanatana Hub. Understand the rules, guidelines, intellectual property rights, and user responsibilities.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-terms.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Terms & Conditions",
+      "description": "Terms and Conditions for Sanatana Hub detailing platform usage, copyright, liability, legal standards, and user responsibilities.",
+      "url": "https://sanatanahub.com/terms.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Page-Specific Custom Inline Styles -->
+    <style>
+        .terms-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* Table of Contents Styling */
+        .toc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-gold);
+            margin-bottom: 2rem;
+        }
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.75rem 1.5rem;
+        }
+        .toc-list li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        body.dark-mode .toc-list li a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .toc-list li a:hover {
+            color: var(--accent-gold);
+            transform: translateX(4px);
+        }
+
+        /* Glassmorphism Section Cards */
+        .terms-section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            scroll-margin-top: 100px;
+            transition: var(--transition);
+        }
+        .terms-section-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .terms-heading {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .terms-heading {
+            color: var(--accent-gold);
+        }
+        .terms-body {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        .terms-body p {
+            margin-bottom: 1rem;
+        }
+        .terms-body p:last-child {
+            margin-bottom: 0;
+        }
+        .terms-body ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+            padding: 0;
+        }
+        .terms-body ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Banner Style */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+        <div class="search-close" id="searchClose" aria-label="Close search"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search terms, guidelines, policies...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+                <li><a href="stotras.html" class="nav-link">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link">Meditation</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchOpen" title="Search" aria-label="Open Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="min-height: 48vh; padding-top: 140px; padding-bottom: 50px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="hero-badge"><i class="fa-solid fa-file-contract"></i> Legal & Platform Rules</div>
+                    <h1 class="hero-title">Terms & <span class="gold-text">Conditions</span></h1>
+                    <p class="hero-subtitle">Please read these Terms & Conditions carefully before using Sanatana Hub.</p>
+                    <p style="font-size: 0.85rem; color: var(--accent-gold); margin-top: 0.75rem;">Last Updated: August 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="section-padding">
+            <div class="terms-container">
+
+                <!-- Table of Contents Card -->
+                <div class="toc-card reveal-up">
+                    <div class="toc-title"><i class="fa-solid fa-list-ol"></i> Table of Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#acceptance-of-terms"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 1. Acceptance of Terms</a></li>
+                        <li><a href="#website-usage"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 2. Website Usage</a></li>
+                        <li><a href="#intellectual-property"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 3. Intellectual Property</a></li>
+                        <li><a href="#user-responsibilities"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 4. User Responsibilities</a></li>
+                        <li><a href="#content-accuracy"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 5. Content Accuracy</a></li>
+                        <li><a href="#external-links"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 6. External Links</a></li>
+                        <li><a href="#third-party-services"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 7. Third-Party Services</a></li>
+                        <li><a href="#google-adsense"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 8. Google AdSense</a></li>
+                        <li><a href="#copyright-policy"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 9. Copyright Policy</a></li>
+                        <li><a href="#limitation-of-liability"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 10. Limitation of Liability</a></li>
+                        <li><a href="#changes-to-terms"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 11. Changes to Terms</a></li>
+                        <li><a href="#governing-law"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 12. Governing Law</a></li>
+                        <li><a href="#contact-info"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 13. Contact Information</a></li>
+                    </ul>
+                </div>
+
+                <!-- 1. Acceptance of Terms -->
+                <article class="terms-section-card reveal-up" id="acceptance-of-terms">
+                    <h2 class="terms-heading"><i class="fa-solid fa-handshake" style="color: var(--accent-gold);"></i> 1. Acceptance of Terms</h2>
+                    <div class="terms-body">
+                        <p>Welcome to <strong>Sanatana Hub</strong> ("we," "our," or "us"). By accessing, browsing, or using our website located at <strong>https://sanatanahub.com</strong> and any related applications, services, or content, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions.</p>
+                        <p>If you do not agree with any part of these terms, you must refrain from using or accessing our website and services.</p>
+                    </div>
+                </article>
+
+                <!-- 2. Website Usage -->
+                <article class="terms-section-card reveal-up" id="website-usage">
+                    <h2 class="terms-heading"><i class="fa-solid fa-laptop-code" style="color: var(--accent-gold);"></i> 2. Website Usage</h2>
+                    <div class="terms-body">
+                        <p>Sanatana Hub provides digital educational materials, articles, stotras, quizzes, books, and multimedia resources for personal, non-commercial, and educational purposes.</p>
+                        <p>When using our website, you agree that you will not:</p>
+                        <ul>
+                            <li>Use the platform for any unlawful purpose or in violation of local, national, or international laws.</li>
+                            <li>Attempt to breach or probe the security, vulnerability, or authentication mechanisms of our servers.</li>
+                            <li>Engage in automated data scraping, crawling, or extraction without explicit written consent.</li>
+                            <li>Disrupt, impair, or place an unreasonable load on our website performance or hosting infrastructure.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 3. Intellectual Property -->
+                <article class="terms-section-card reveal-up" id="intellectual-property">
+                    <h2 class="terms-heading"><i class="fa-solid fa-shield-halved" style="color: var(--accent-gold);"></i> 3. Intellectual Property</h2>
+                    <div class="terms-body">
+                        <p>All content published on Sanatana Hub—including text, original translations, logo designs, graphic branding, UI components, code, audio, and visual media—is the property of Sanatana Hub or its content creators and is protected by applicable intellectual property and copyright laws.</p>
+                        <p>Traditional scriptural verses, sacred texts, and public domain stotras remain in the public domain. However, our unique translations, commentaries, design layouts, and digitized presentation formats are protected work.</p>
+                    </div>
+                </article>
+
+                <!-- 4. User Responsibilities -->
+                <article class="terms-section-card reveal-up" id="user-responsibilities">
+                    <h2 class="terms-heading"><i class="fa-solid fa-user-check" style="color: var(--accent-gold);"></i> 4. User Responsibilities</h2>
+                    <div class="terms-body">
+                        <p>Users participating in interactive features, such as contact forms, feedback tools, or community quizzes, agree to provide accurate and truthful information.</p>
+                        <p>You agree not to submit or transmit any material that is defamatory, hateful, abusive, obscene, or infringing upon third-party intellectual property rights.</p>
+                    </div>
+                </article>
+
+                <!-- 5. Content Accuracy -->
+                <article class="terms-section-card reveal-up" id="content-accuracy">
+                    <h2 class="terms-heading"><i class="fa-solid fa-book-open-reader" style="color: var(--accent-gold);"></i> 5. Content Accuracy</h2>
+                    <div class="terms-body">
+                        <p>While Sanatana Hub strives to ensure highest historical, scriptural, and educational accuracy across all articles, quizzes, and digital assets, the materials are provided on an "as is" and "as available" basis.</p>
+                        <p>We make no express or implied warranties regarding the absolute completeness, accuracy, or timeliness of information published on our platform.</p>
+                    </div>
+                </article>
+
+                <!-- 6. External Links -->
+                <article class="terms-section-card reveal-up" id="external-links">
+                    <h2 class="terms-heading"><i class="fa-solid fa-arrow-up-right-from-square" style="color: var(--accent-gold);"></i> 6. External Links</h2>
+                    <div class="terms-body">
+                        <p>Our website may contain links to external third-party websites or services that are not owned or controlled by Sanatana Hub.</p>
+                        <p>We have no control over, and assume no responsibility for, the content, privacy policies, or practices of any third-party websites. You access external links at your own risk.</p>
+                    </div>
+                </article>
+
+                <!-- 7. Third-Party Services -->
+                <article class="terms-section-card reveal-up" id="third-party-services">
+                    <h2 class="terms-heading"><i class="fa-solid fa-network-wired" style="color: var(--accent-gold);"></i> 7. Third-Party Services</h2>
+                    <div class="terms-body">
+                        <p>We may integrate trusted third-party tools, APIs, fonts, and CDN services (such as Font Awesome and Google Fonts) to provide an optimal browsing experience.</p>
+                        <p>Your interactions with these services are governed by their respective terms of service and privacy policies.</p>
+                    </div>
+                </article>
+
+                <!-- 8. Google AdSense -->
+                <article class="terms-section-card reveal-up" id="google-adsense">
+                    <h2 class="terms-heading"><i class="fa-solid fa-rectangle-ad" style="color: var(--accent-gold);"></i> 8. Google AdSense</h2>
+                    <div class="terms-body">
+                        <p>Sanatana Hub may display advertisements provided by Google AdSense and its partners to support site operations and free resource offerings.</p>
+                        <p>By using this site, you acknowledge that Google and third-party vendors may use cookies to serve ads based on user visits. You can manage your ad personalization settings at any time via Google's Ad Settings.</p>
+                    </div>
+                </article>
+
+                <!-- 9. Copyright Policy -->
+                <article class="terms-section-card reveal-up" id="copyright-policy">
+                    <h2 class="terms-heading"><i class="fa-solid fa-copyright" style="color: var(--accent-gold);"></i> 9. Copyright Policy</h2>
+                    <div class="terms-body">
+                        <p>Sanatana Hub respects intellectual property rights. If you believe that any material available on our website infringes upon a copyright you own or control, please notify us immediately with detailed proof at copyright@sanatanahub.com.</p>
+                        <p>We will review and take down infringing content in accordance with applicable copyright laws.</p>
+                    </div>
+                </article>
+
+                <!-- 10. Limitation of Liability -->
+                <article class="terms-section-card reveal-up" id="limitation-of-liability">
+                    <h2 class="terms-heading"><i class="fa-solid fa-scale-balanced" style="color: var(--accent-gold);"></i> 10. Limitation of Liability</h2>
+                    <div class="terms-body">
+                        <p>To the maximum extent permitted by applicable law, Sanatana Hub, its team, or affiliates shall not be liable for any direct, indirect, incidental, consequential, or punitive damages arising from your access to, use of, or inability to use this website.</p>
+                    </div>
+                </article>
+
+                <!-- 11. Changes to Terms -->
+                <article class="terms-section-card reveal-up" id="changes-to-terms">
+                    <h2 class="terms-heading"><i class="fa-solid fa-pen-to-square" style="color: var(--accent-gold);"></i> 11. Changes to Terms</h2>
+                    <div class="terms-body">
+                        <p>We reserve the right to revise, modify, or update these Terms & Conditions at any time without prior notice. Modified terms will become effective immediately upon posting to this page.</p>
+                        <p>Your continued use of Sanatana Hub following the posting of changes constitutes acceptance of those updates.</p>
+                    </div>
+                </article>
+
+                <!-- 12. Governing Law -->
+                <article class="terms-section-card reveal-up" id="governing-law">
+                    <h2 class="terms-heading"><i class="fa-solid fa-gavel" style="color: var(--accent-gold);"></i> 12. Governing Law</h2>
+                    <div class="terms-body">
+                        <p>These Terms & Conditions shall be governed by and construed in accordance with the laws of India, without regard to its conflict of law principles.</p>
+                    </div>
+                </article>
+
+                <!-- 13. Contact Information -->
+                <article class="terms-section-card reveal-up" id="contact-info">
+                    <h2 class="terms-heading"><i class="fa-solid fa-envelope-open-text" style="color: var(--accent-gold);"></i> 13. Contact Information</h2>
+                    <div class="terms-body">
+                        <p>If you have any questions or clarifications regarding these Terms & Conditions, please reach out to us:</p>
+                        <p><strong>Email:</strong> legal@sanatanahub.com / contact@sanatanahub.com<br>
+                        <strong>Contact Page:</strong> <a href="contact.html" style="color: var(--accent-gold); text-decoration: underline;">https://sanatanahub.com/contact.html</a></p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 10px;">
+            <div class="cta-banner reveal-up" style="max-width: 1000px; margin: 0 auto;">
+                <div style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 0.75rem;"><i class="fa-solid fa-circle-question"></i></div>
+                <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Need Help or Have Questions?</h2>
+                <p style="max-width: 600px; margin: 0 auto 1.75rem auto; color: rgba(255, 255, 255, 0.85); font-size: 0.95rem;">Our team is here to assist you with any questions regarding our terms, services, or platform features.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="contact.html" class="btn btn-gold"><i class="fa-solid fa-paper-plane"></i> Contact Us</a>
+                    <a href="index.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-house"></i> Return Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Existing Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>
