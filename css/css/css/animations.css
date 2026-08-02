@@ -1,0 +1,12 @@
+/* Animation Keyframes & Reveal States */
+.reveal-up { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s ease-out; }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s ease-out; }
+.reveal-active { opacity: 1; transform: translate(0); }
+
+#preloader { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: var(--primary); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 10000; transition: opacity 0.8s ease; }
+.lotus-icon { font-size: 3.5rem; color: var(--accent-gold); animation: lotusPulse 2s infinite ease-in-out; }
+.spinner-ring { position: absolute; width: 90px; height: 90px; border: 2px solid transparent; border-top: 2px solid var(--accent-gold); border-radius: 50%; animation: spin 1.2s linear infinite; }
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+@keyframes lotusPulse { 0%, 100% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.15); opacity: 1; } }
