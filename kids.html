@@ -3,30 +3,859 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kids Corner — Sanatana Hub</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Spiritual Quizzes & Learning — Sanatana Hub</title>
+    <meta name="title" content="Spiritual Quizzes & Learning — Sanatana Hub">
+    <meta name="description" content="Test your knowledge of Sanatana Dharma with interactive quizzes on Bhagavad Gita, Ramayana, Mahabharata, deities, temples, and Vedic wisdom across all difficulty levels.">
+    <link rel="canonical" href="https://sanatanahub.com/quizzes.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/quizzes.html">
+    <meta property="og:title" content="Spiritual Quizzes & Learning — Sanatana Hub">
+    <meta property="og:description" content="Engage in interactive daily challenges, test your knowledge of Hindu epics and deities, and climb the Sanatana Hub community leaderboard.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-quizzes.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/quizzes.html">
+    <meta property="twitter:title" content="Spiritual Quizzes & Learning — Sanatana Hub">
+    <meta property="twitter:description" content="Engage in interactive daily challenges, test your knowledge of Hindu epics and deities, and climb the Sanatana Hub community leaderboard.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-quizzes.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Quiz",
+      "name": "Spiritual Quizzes & Learning",
+      "description": "Interactive quizzes testing knowledge on Sanatana Dharma, scriptures, epics, and festivals.",
+      "url": "https://sanatanahub.com/quizzes.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Inline Custom Styles tailored for Quiz Components -->
+    <style>
+        /* Category Grid Layout */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .quiz-cat-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .quiz-cat-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+        }
+        .quiz-cat-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+        }
+        .quiz-cat-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .quiz-cat-card p {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        /* Difficulty Filter Pill Tabs */
+        .difficulty-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .diff-pill {
+            padding: 0.6rem 1.75rem;
+            border-radius: 30px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-dark);
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        body.dark-mode .diff-pill {
+            color: #FFFFFF;
+        }
+        .diff-pill:hover, .diff-pill.active {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #FFFFFF;
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* Popular Quizzes Grid (12 Cards Layout) */
+        .popular-quiz-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .popular-quiz-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .popular-quiz-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-md);
+        }
+        .quiz-thumb-wrapper {
+            position: relative;
+            height: 160px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .quiz-thumb-icon {
+            font-size: 3.5rem;
+            color: rgba(212, 175, 55, 0.35);
+            transition: var(--transition);
+        }
+        .popular-quiz-card:hover .quiz-thumb-icon {
+            transform: scale(1.15) rotate(5deg);
+            color: var(--accent-gold);
+        }
+        .diff-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            padding: 0.2rem 0.65rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .badge-easy { background: rgba(34, 197, 94, 0.2); color: #22c55e; border: 1px solid #22c55e; }
+        .badge-med { background: rgba(234, 179, 8, 0.2); color: #eab308; border: 1px solid #eab308; }
+        .badge-hard { background: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+
+        .quiz-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .quiz-meta-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.75rem;
+        }
+
+        /* Leaderboard Styling */
+        .leaderboard-container {
+            max-width: 850px;
+            margin: 2.5rem auto 0 auto;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        .leaderboard-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        .leaderboard-table th {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 1.25rem 1.5rem;
+            color: var(--accent-gold);
+            font-family: var(--font-heading);
+            font-size: 1.1rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .leaderboard-table td {
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+            font-size: 0.95rem;
+        }
+        .rank-pill {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        .rank-1 { background: linear-gradient(135deg, #ffd700, #b8860b); color: #000; }
+        .rank-2 { background: linear-gradient(135deg, #c0c0c0, #708090); color: #000; }
+        .rank-3 { background: linear-gradient(135deg, #cd7f32, #8b4513); color: #fff; }
+        .rank-other { background: rgba(255, 255, 255, 0.1); color: var(--text-muted); }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .benefit-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+            text-align: center;
+        }
+        .benefit-card i {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+        }
+
+        /* FAQ Section */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 2.5rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .faq-question {
+            color: #FFFFFF;
+        }
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Banner CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <header class="header scrolled">
-        <nav class="navbar">
-            <a href="index.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-om"></i></div><span>Sanatana Hub</span></a>
-            <ul class="nav-links">
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+        <div class="search-close" id="searchClose" aria-label="Close search"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search quizzes, categories, deities...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="kids.html" class="nav-link active">Kids</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+                <li><a href="stotras.html" class="nav-link">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link">Meditation</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link active" aria-current="page">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchOpen" title="Search" aria-label="Open Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </nav>
     </header>
 
-    <section class="section-padding" style="margin-top: 100px;">
-        <div class="text-center">
-            <h1 class="section-title">Kids Corner & Activities</h1>
-            <div class="gold-divider"></div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="min-height: 55vh; padding-top: 140px; padding-bottom: 60px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="hero-badge"><i class="fa-solid fa-brain"></i> Interactive Learning</div>
+                    <h1 class="hero-title">Spiritual <span class="gold-text">Quizzes & Learning</span></h1>
+                    <p class="hero-subtitle">Test your knowledge of Sanatana Dharma through fun, engaging, and educational interactive quizzes designed for seekers of all ages.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Featured Quiz Categories (9 Premium Cards) -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Choose Your Domain</span>
+                <h2 class="section-title">Featured Quiz Categories</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="category-grid reveal-up">
+                <!-- Cat 1 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>Bhagavad Gita Quiz</h3>
+                    <p>Challenge your understanding of Krishna’s timeless dialogue with Arjuna, yoga paths, and duty.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 2 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-bow-arrow"></i></div>
+                    <h3>Ramayana Quiz</h3>
+                    <p>Explore the righteous journey of Lord Rama, Sita Devi, Lakshmana, and Sri Hanuman.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 3 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Mahabharata Quiz</h3>
+                    <p>Test your knowledge on the great epic of Kurukshetra, Pandavas, Kauravas, and Dharma.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 4 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-feather"></i></div>
+                    <h3>Krishna Quiz</h3>
+                    <p>Discover anecdotes, leelas, teachings, and stories from Lord Krishna's divine life.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 5 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-mountain"></i></div>
+                    <h3>Shiva Quiz</h3>
+                    <p>Discover mysteries, manifestations, symbolism, and stotras dedicated to Mahadeva.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 6 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-crown"></i></div>
+                    <h3>Vishnu Quiz</h3>
+                    <p>Learn about the Dashavatara, cosmic preserver symbolism, and Puranic narratives.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 7 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-toran"></i></div>
+                    <h3>Hindu Festivals Quiz</h3>
+                    <p>Understand the spiritual significance, rituals, and legends behind Diwali, Navratri, and more.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 8 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-gopuram"></i></div>
+                    <h3>Temple Quiz</h3>
+                    <p>Uncover facts about grand architectural marvels, sacred Jyotirlingas, and Shakti Peethas.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+
+                <!-- Cat 9 -->
+                <div class="quiz-cat-card">
+                    <div class="quiz-cat-icon"><i class="fa-solid fa-child-reaching"></i></div>
+                    <h3>Kids Quiz</h3>
+                    <p>Fun, beginner-friendly puzzles and moral story quizzes designed especially for young learners.</p>
+                    <a href="#" class="btn btn-gold" style="padding: 0.5rem 1.25rem; font-size: 0.85rem; align-self: flex-start;">Start Quiz</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Difficulty Levels Filter -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Tailored Learning</span>
+                <h2 class="section-title">Difficulty Levels</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="difficulty-wrapper reveal-up">
+                <div class="diff-pill active">All Levels</div>
+                <div class="diff-pill">Beginner</div>
+                <div class="diff-pill">Intermediate</div>
+                <div class="diff-pill">Advanced</div>
+            </div>
+
+            <!-- Popular Quizzes Grid (12 Cards) -->
+            <div class="popular-quiz-grid reveal-up">
+                <!-- Quiz 1 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-easy">Beginner</span>
+                        <i class="fa-solid fa-book-quran quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 10 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Gita Basics for Beginners</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Fundamental questions regarding Arjuna's dilemma and Krishna's initial guidance.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 2 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-med">Intermediate</span>
+                        <i class="fa-solid fa-bolt quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 15 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 8 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Daily Challenge: Valmiki Ramayana</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Today's featured quiz on the Kandas and heroic virtues of Sri Rama.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 3 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-hard">Advanced</span>
+                        <i class="fa-solid fa-fire quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 20 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 12 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Puranic Weapons & Astras</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">A deep dive into divine weapons like Brahmastra, Pashupatastra, and Sudarshana.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 4 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-easy">Beginner</span>
+                        <i class="fa-solid fa-sun quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 10 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Festival Traditions & Lore</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Identify festivals from customs, food preparations, and seasonal origins.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 5 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-med">Intermediate</span>
+                        <i class="fa-solid fa-synagogue quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 12 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 7 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">12 Jyotirlinga Quest</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Match the sacred Jyotirlingas with their locations and Puranic significance.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 6 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-easy">Beginner</span>
+                        <i class="fa-solid fa-shield-cat quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 10 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Hanuman Leela Quiz</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Discover facts about Lord Hanuman's childhood, strength, and devotion.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 7 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-hard">Advanced</span>
+                        <i class="fa-solid fa-scroll quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 18 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 10 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Upanishads & Vedic Philosophy</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Test knowledge of Mahavakyas, principal Upanishads, and Vedic sages.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 8 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-med">Intermediate</span>
+                        <i class="fa-solid fa-gem quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 12 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 6 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Navadurga & Shakti Worship</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Explore the 9 forms of Goddess Durga worshipped during Navratri.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 9 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-easy">Beginner</span>
+                        <i class="fa-solid fa-face-smile quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 8 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 4 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Kids Mythological Characters</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Match famous mythological characters with their iconic powers and mounts.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 10 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-med">Intermediate</span>
+                        <i class="fa-solid fa-landmark-dome quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 15 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 8 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Sacred Rivers & Geography</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Learn about Ganga, Yamuna, Saraswati, and pilgrimage geography.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 11 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-hard">Advanced</span>
+                        <i class="fa-solid fa-dharmachakra quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 20 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 12 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Mahabharata Sub-Plots & Lineage</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">An in-depth quiz on lesser-known characters and complex familial trees.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+
+                <!-- Quiz 12 -->
+                <div class="popular-quiz-card">
+                    <div class="quiz-thumb-wrapper">
+                        <span class="diff-badge badge-easy">Beginner</span>
+                        <i class="fa-solid fa-music quiz-thumb-icon"></i>
+                    </div>
+                    <div class="quiz-card-body">
+                        <div class="quiz-meta-info">
+                            <span><i class="fa-solid fa-list-check"></i> 10 Questions</span>
+                            <span><i class="fa-regular fa-clock"></i> 5 Mins</span>
+                        </div>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Famous Stotras & Mantras</h4>
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.25rem; flex-grow: 1;">Identify famous shlokas, composers, and their spiritual benefits.</p>
+                        <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem; text-align: center;">Play Now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Demo Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Top Performers</span>
+                <h2 class="section-title">Community Leaderboard</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="leaderboard-container reveal-up">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Seeker Name</th>
+                            <th>Quizzes Completed</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><div class="rank-pill rank-1">1</div></td>
+                            <td><strong>Aarav Sharma</strong></td>
+                            <td>42 Quizzes</td>
+                            <td class="gold-text"><strong>9,850 pts</strong></td>
+                        </tr>
+                        <tr>
+                            <td><div class="rank-pill rank-2">2</div></td>
+                            <td><strong>Ananya Iyer</strong></td>
+                            <td>38 Quizzes</td>
+                            <td class="gold-text"><strong>9,420 pts</strong></td>
+                        </tr>
+                        <tr>
+                            <td><div class="rank-pill rank-3">3</div></td>
+                            <td><strong>Rohan Verma</strong></td>
+                            <td>35 Quizzes</td>
+                            <td class="gold-text"><strong>8,910 pts</strong></td>
+                        </tr>
+                        <tr>
+                            <td><div class="rank-pill rank-other">4</div></td>
+                            <td>Priya Kulkarni</td>
+                            <td>30 Quizzes</td>
+                            <td>8,200 pts</td>
+                        </tr>
+                        <tr>
+                            <td><div class="rank-pill rank-other">5</div></td>
+                            <td>Siddharth Rao</td>
+                            <td>28 Quizzes</td>
+                            <td>7,850 pts</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Quiz Benefits Section -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Why Take Quizzes?</span>
+                <h2 class="section-title">Benefits of Gamified Learning</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="benefits-grid reveal-up">
+                <div class="benefit-card">
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h4>Active Knowledge Retention</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Interactive recall strengthens memory and reinforces important cultural facts superior to passive reading.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <h4>Structured Wisdom Growth</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">Progress naturally through difficulty tiers from basic stories to profound Vedantic philosophy.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fa-solid fa-people-group"></i>
+                    <h4>Family & Youth Engagement</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted); margin: 0;">An enjoyable way to introduce children and teens to Sanatana heritage in a modern digital format.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Help & Information</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="faq-wrapper reveal-up">
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Are all quizzes on Sanatana Hub free to play?</div>
+                    <div class="faq-answer">Yes, all quizzes across all categories and difficulty levels are completely free for all visitors.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> How often are new quizzes added?</div>
+                    <div class="faq-answer">We publish new daily challenge quizzes every 24 hours, along with weekly featured sets covering specific Puranas and historical temples.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Do I need to create an account to attempt a quiz?</div>
+                    <div class="faq-answer">No account is required to take quizzes, but logging in allows you to save your high scores and rank on the global leaderboard.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Are explanations provided after answering a question?</div>
+                    <div class="faq-answer">Yes, every question provides immediate, authentic context and scriptural references upon submission to deepen your understanding.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Can these quizzes be used for school or kids group learning?</div>
+                    <div class="faq-answer">Absolutely! Our Kids Quiz category is designed specifically for young minds, ideal for home learning or cultural workshops.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> How is the community leaderboard score calculated?</div>
+                    <div class="faq-answer">Scores are calculated based on accuracy, difficulty multiplier, and completion speed across all attempted quiz sessions.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 20px;">
+            <div class="cta-banner reveal-up">
+                <div style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-trophy"></i></div>
+                <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Challenge Your Knowledge Today</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem auto; color: rgba(255, 255, 255, 0.8); font-size: 1rem;">Expand your wisdom of Sanatana Dharma, earn badges, and share your score with friends and family.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="#" class="btn btn-gold"><i class="fa-solid fa-play"></i> Start Learning Now</a>
+                    <a href="articles.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-book"></i> Read Articles</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Existing Scripts -->
     <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
