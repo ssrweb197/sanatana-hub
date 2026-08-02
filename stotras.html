@@ -3,30 +3,877 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sacred Stotras — Sanatana Hub</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Sacred Stotras & Daily Prayers — Sanatana Hub</title>
+    <meta name="title" content="Sacred Stotras & Daily Prayers — Sanatana Hub">
+    <meta name="description" content="Explore ancient Vedic stotras, mantras, morning & evening prayers, audio chants, and festival stotras with clear lyrics, meanings, and audio placeholders.">
+    <link rel="canonical" href="https://sanatanahub.com/stotras.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/stotras.html">
+    <meta property="og:title" content="Sacred Stotras & Daily Prayers — Sanatana Hub">
+    <meta property="og:description" content="Immerse yourself in authentic Vedic chants, Vishnu Sahasranamam, Hanuman Chalisa, Shiva Tandava, and daily morning & evening prayers.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-stotras.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/stotras.html">
+    <meta property="twitter:title" content="Sacred Stotras & Daily Prayers — Sanatana Hub">
+    <meta property="twitter:description" content="Immerse yourself in authentic Vedic chants, Vishnu Sahasranamam, Hanuman Chalisa, Shiva Tandava, and daily morning & evening prayers.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-stotras.jpg">
+
+    <!-- Fonts & CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Sacred Stotras & Daily Prayers",
+      "description": "A comprehensive repository of Hindu stotras, mantras, devotional prayers, and audio chants.",
+      "url": "https://sanatanahub.com/stotras.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Inline Styles tailored for Stotra components using standard design tokens -->
+    <style>
+        /* Inline Stotra Search Bar */
+        .stotra-search-container {
+            max-width: 650px;
+            margin: -35px auto 0 auto;
+            position: relative;
+            z-index: 10;
+            padding: 0 1rem;
+        }
+        .stotra-search-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem 0.8rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-md);
+        }
+        .stotra-search-input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 0.5rem 1rem;
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+        body.dark-mode .stotra-search-input {
+            color: #FFFFFF;
+        }
+
+        /* Categories Grid */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+        .category-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 1rem;
+            text-align: center;
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+        }
+        .category-card i {
+            font-size: 2rem;
+            color: var(--accent-gold);
+        }
+        .category-card h3 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        /* Stotra Card Layout */
+        .stotras-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .stotra-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+        .stotra-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+        .stotra-header-wrapper {
+            position: relative;
+            height: 160px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .stotra-header-icon {
+            font-size: 3.5rem;
+            color: rgba(212, 175, 55, 0.35);
+            transition: var(--transition);
+        }
+        .stotra-card:hover .stotra-header-icon {
+            transform: scale(1.15) rotate(5deg);
+            color: var(--accent-gold);
+        }
+        .deity-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #FFFFFF;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .stotra-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .stotra-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .stotra-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .stotra-desc {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .stotra-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        /* Audio Player Cards */
+        .audio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .audio-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+        }
+        .audio-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-sm);
+        }
+        .audio-play-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            font-size: 1.2rem;
+            cursor: pointer;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+        .audio-play-btn:hover {
+            transform: scale(1.08);
+            box-shadow: var(--shadow-gold);
+        }
+        .audio-info h4 {
+            font-size: 1rem;
+            margin: 0 0 0.25rem 0;
+        }
+        .audio-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* Daily Routine Section */
+        .prayer-routine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .routine-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+        }
+        .routine-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .routine-icon {
+            font-size: 2.2rem;
+            color: var(--accent-gold);
+        }
+        .routine-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .routine-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+        .routine-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        body.dark-mode .routine-item a {
+            color: #FFFFFF;
+        }
+        .routine-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* FAQ Section */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 2.5rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .faq-question {
+            color: #FFFFFF;
+        }
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Banner CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <header class="header scrolled">
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-close" id="searchClose"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search stotras, mantras, books, quizzes...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header" id="header">
         <nav class="navbar">
-            <a href="index.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-om"></i></div><span>Sanatana Hub</span></a>
-            <ul class="nav-links">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
                 <li><a href="stotras.html" class="nav-link active">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link">Meditation</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <div class="icon-btn" id="searchOpen" title="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="icon-btn" id="themeToggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></div>
+                <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div>
+            </div>
         </nav>
     </header>
 
-    <section class="section-padding" style="margin-top: 100px;">
-        <div class="text-center">
-            <h1 class="section-title">Sacred Stotras & Prayers</h1>
-            <div class="gold-divider"></div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Banner -->
+        <section class="hero" style="min-height: 55vh; padding-top: 140px; padding-bottom: 60px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="hero-badge"><i class="fa-solid fa-hands-praying"></i> Devotional Repository</div>
+                    <h1 class="hero-title">Sacred <span class="gold-text">Stotras & Daily Prayers</span></h1>
+                    <p class="hero-subtitle">Discover powerful Hindu stotras, Vedic mantras, morning & evening chants, and festival prayers with lyrics, translations, and audio guides.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Search Stotras Bar -->
+        <div class="stotra-search-container reveal-up">
+            <div class="stotra-search-box">
+                <i class="fa-solid fa-magnifying-glass" style="color: var(--accent-gold); margin-left: 1rem;"></i>
+                <input type="text" class="stotra-search-input" id="pageStotraSearch" placeholder="Search stotras by name, deity, or benefit (e.g., Hanuman Chalisa, Shiva)...">
+                <button class="btn btn-gold" style="padding: 0.6rem 1.5rem; font-size: 0.85rem;">Search</button>
+            </div>
+        </div>
+
+        <!-- Categories Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Browse Collections</span>
+                <h2 class="section-title">Stotra Categories</h2>
+                <div class="gold-divider"></div>
+            </div>
+            <div class="category-grid reveal-up">
+                <div class="category-card">
+                    <i class="fa-solid fa-sun"></i>
+                    <h3>Morning Prayers</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-moon"></i>
+                    <h3>Evening Prayers</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-bolt"></i>
+                    <h3>Powerful Mantras</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-toran"></i>
+                    <h3>Festival Special</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Kavacham & Raksha</h3>
+                </div>
+                <div class="category-card">
+                    <i class="fa-solid fa-music"></i>
+                    <h3>Audio Chants</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Stotras Section (8 Primary Cards) -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Most Recited Chants</span>
+                <h2 class="section-title">Featured Stotras</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="stotras-grid reveal-up">
+                <!-- Stotra 1 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Lord Vishnu</span>
+                        <i class="fa-solid fa-crown stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-list-ol"></i> 1000 Names</span>
+                            <span>•</span>
+                            <span>Anushthana</span>
+                        </div>
+                        <h3 class="stotra-title">Vishnu Sahasranamam</h3>
+                        <p class="stotra-desc">The sacred 1000 names of Lord Vishnu recited for mental peace, obstacle removal, and spiritual protection.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 2 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Goddess Shakti</span>
+                        <i class="fa-solid fa-gem stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-list-ol"></i> 1000 Names</span>
+                            <span>•</span>
+                            <span>Devi Worship</span>
+                        </div>
+                        <h3 class="stotra-title">Lalitha Sahasranamam</h3>
+                        <p class="stotra-desc">A profound hymn dedicated to Divine Mother Lalitha Tripura Sundari, conferring health, prosperity, and joy.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 3 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Lord Hanuman</span>
+                        <i class="fa-solid fa-shield-cat stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-align-left"></i> 40 Verses</span>
+                            <span>•</span>
+                            <span>Protection</span>
+                        </div>
+                        <h3 class="stotra-title">Hanuman Chalisa</h3>
+                        <p class="stotra-desc">The timeless 40-verse devotional poem by Goswami Tulsidas invoking courage, strength, and immunity from fear.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 4 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Surya Deva</span>
+                        <i class="fa-solid fa-sun stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-fire"></i> Ramayana</span>
+                            <span>•</span>
+                            <span>Energy & Health</span>
+                        </div>
+                        <h3 class="stotra-title">Aditya Hridayam</h3>
+                        <p class="stotra-desc">Imparted by Sage Agastya to Lord Rama before battle, granting victory, boundless energy, and clarity of mind.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 5 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Lord Shiva</span>
+                        <i class="fa-solid fa-mountain stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-bolt"></i> Ravana Stuti</span>
+                            <span>•</span>
+                            <span>Power & Devotion</span>
+                        </div>
+                        <h3 class="stotra-title">Shiva Tandava Stotram</h3>
+                        <p class="stotra-desc">A rhythmically magnificent hymn composed by Ravana describing Lord Shiva's cosmic dance of renewal.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 6 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Lord Shiva</span>
+                        <i class="fa-solid fa-spa stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-star"></i> 8 Stanzas</span>
+                            <span>•</span>
+                            <span>Inner Peace</span>
+                        </div>
+                        <h3 class="stotra-title">Lingashtakam</h3>
+                        <p class="stotra-desc">An eight-verse hymn extolling the holy Linga as the ultimate source of creation, purity, and liberation.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 7 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Goddess Lakshmi</span>
+                        <i class="fa-solid fa-coins stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-hand-holding-dollar"></i> Adi Shankara</span>
+                            <span>•</span>
+                            <span>Abundance</span>
+                        </div>
+                        <h3 class="stotra-title">Kanakadhara Stotram</h3>
+                        <p class="stotra-desc">Composed by Sri Adi Shankaracharya to shower golden gooseberries upon a poor woman, granting prosperity.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stotra 8 -->
+                <div class="stotra-card">
+                    <div class="stotra-header-wrapper">
+                        <span class="deity-badge">Goddess Lakshmi</span>
+                        <i class="fa-solid fa-water stotra-header-icon"></i>
+                    </div>
+                    <div class="stotra-content">
+                        <div class="stotra-meta">
+                            <span><i class="fa-solid fa-star"></i> 8 Stanzas</span>
+                            <span>•</span>
+                            <span>Auspiciousness</span>
+                        </div>
+                        <h3 class="stotra-title">Mahalakshmi Ashtakam</h3>
+                        <p class="stotra-desc">An eight-verse prayer chanted to seek the grace, wealth, auspiciousness, and spiritual blessings of Goddess Lakshmi.</p>
+                        <div class="stotra-footer">
+                            <a href="#" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">Read & Chant</a>
+                            <i class="fa-solid fa-volume-high" style="color: var(--accent-gold);"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Audio Chanting Placeholders Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Listen & Practice</span>
+                <h2 class="section-title">Audio Chanting Guides</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="audio-grid reveal-up">
+                <div class="audio-card">
+                    <div class="audio-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="audio-info">
+                        <h4>Gayatri Mantra (108 Times)</h4>
+                        <p><i class="fa-regular fa-clock"></i> 25 mins • Pure Vedic Voice</p>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <div class="audio-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="audio-info">
+                        <h4>Mahamrityunjaya Mantra</h4>
+                        <p><i class="fa-regular fa-clock"></i> 18 mins • Meditative Flow</p>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <div class="audio-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="audio-info">
+                        <h4>Sri Suktam Chanting</h4>
+                        <p><i class="fa-regular fa-clock"></i> 12 mins • Temple Acoustic</p>
+                    </div>
+                </div>
+                <div class="audio-card">
+                    <div class="audio-play-btn"><i class="fa-solid fa-play"></i></div>
+                    <div class="audio-info">
+                        <h4>Nirvana Shatakam Chants</h4>
+                        <p><i class="fa-regular fa-clock"></i> 10 mins • Flute Accompaniment</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Prayers & Routine Section -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Daily Spiritual Practice</span>
+                <h2 class="section-title">Morning, Evening & Festival Prayers</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="prayer-routine-grid reveal-up">
+                <!-- Morning Routine -->
+                <div class="routine-card">
+                    <div class="routine-header">
+                        <i class="fa-solid fa-sun routine-icon"></i>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.3rem;">Morning Prayers</h3>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Prata Smaran & Wake-Up Chants</span>
+                        </div>
+                    </div>
+                    <ul class="routine-list">
+                        <li class="routine-item">
+                            <a href="#">Karagre Vasate Lakshmi</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Upon Waking</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Samudra Vasane Devi (Earth Prayer)</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Bhumidevi</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Gange Cha Yamune Chaive (Bathing)</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Purification</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Surya Arghya Mantra</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Sun Worship</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Evening Routine -->
+                <div class="routine-card">
+                    <div class="routine-header">
+                        <i class="fa-solid fa-moon routine-icon"></i>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.3rem;">Evening Prayers</h3>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Sandhya Aarti & Night Recitations</span>
+                        </div>
+                    </div>
+                    <ul class="routine-list">
+                        <li class="routine-item">
+                            <a href="#">Subham Karoti Kalyanam (Lamp Lighting)</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Dhoop Deep</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Om Jai Jagdish Hare Aarti</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Aarti</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Achyutam Keshavam Devotional Hymn</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Peace Chants</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Night Sleep Peace Shloka</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Bedtime</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Festival Special -->
+                <div class="routine-card">
+                    <div class="routine-header">
+                        <i class="fa-solid fa-toran routine-icon"></i>
+                        <div>
+                            <h3 style="margin: 0; font-size: 1.3rem;">Festival Special</h3>
+                            <span style="font-size: 0.85rem; color: var(--text-muted);">Occasional & Vrat Stotras</span>
+                        </div>
+                    </div>
+                    <ul class="routine-list">
+                        <li class="routine-item">
+                            <a href="#">Maha Shivaratri Chants</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Shivaratri</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Navratri Durga Saptashati Slokas</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Navratri</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Ganesh Chaturthi Ashtakam</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Ganeshotsav</span>
+                        </li>
+                        <li class="routine-item">
+                            <a href="#">Janmashtami Govindashtakam</a>
+                            <span class="badge" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold); font-size: 0.75rem; padding: 0.2rem 0.5rem; border-radius: 10px;">Janmashtami</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Guidance</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="faq-wrapper reveal-up">
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> What is the ideal time to chant stotras?</div>
+                    <div class="faq-answer">The Brahma Muhurta (approximately 1.5 hours before sunrise) and evening dusk (Sandhya time) are traditionally considered the most auspicious periods for chanting stotras and mantras.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Do I need formal initiation (Deeksha) to recite these stotras?</div>
+                    <div class="faq-answer">Most devotional stotras like Hanuman Chalisa, Vishnu Sahasranamam, and Lingashtakam can be recited by anyone with sincerity, clean mind, and devotion without explicit initiation.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Are English translations provided for Sanskrit stotras?</div>
+                    <div class="faq-answer">Yes, all our stotra pages feature clear Sanskrit Devanagari text, English transliteration, and line-by-line meanings to ensure accurate pronunciation and deeper understanding.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 20px;">
+            <div class="cta-banner reveal-up">
+                <div style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-om"></i></div>
+                <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Start Your Daily Prayer Journey</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem auto; color: rgba(255, 255, 255, 0.8); font-size: 1rem;">Cultivate inner calmness and spiritual radiance by making sacred stotra recitation part of your daily morning and evening routine.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="meditation.html" class="btn btn-gold"><i class="fa-solid fa-spa"></i> Explore Meditation</a>
+                    <a href="books.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-book-open"></i> View Stotra Books</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+    <!-- Existing Scripts -->
     <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
