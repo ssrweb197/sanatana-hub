@@ -1,0 +1,13 @@
+/* Responsive Adaptations */
+@media (max-width: 992px) {
+    .hero-container { grid-template-columns: 1fr; text-align: center; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+    .nav-links { position: fixed; top: 0; right: -100%; width: 75%; height: 100vh; background: var(--card-bg); flex-direction: column; justify-content: center; transition: var(--transition); }
+    .nav-links.active { right: 0; }
+    .hamburger { display: block; font-size: 1.5rem; cursor: pointer; color: var(--primary); }
+    body.dark-mode .hamburger { color: #FFFFFF; }
+    .footer-grid { grid-template-columns: 1fr; }
+}
