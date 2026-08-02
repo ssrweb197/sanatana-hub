@@ -3,30 +3,821 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Library — Sanatana Hub</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Spiritual Books & Sacred Journals — Sanatana Hub</title>
+    <meta name="title" content="Spiritual Books & Sacred Journals — Sanatana Hub">
+    <meta name="description" content="Explore our curated collection of spiritual books, Bhagavad Gita guides, guided gratitude journals, kids activity books, and divine coloring books available on Amazon, Google Play Books, and Gumroad.">
+    <link rel="canonical" href="https://sanatanahub.com/books.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/books.html">
+    <meta property="og:title" content="Spiritual Books & Sacred Journals — Sanatana Hub">
+    <meta property="og:description" content="Discover inspiring spiritual literature, guided journals, kids activity books, and authentic Vedic wisdom published for modern readers.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-books.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/books.html">
+    <meta property="twitter:title" content="Spiritual Books & Sacred Journals — Sanatana Hub">
+    <meta property="twitter:description" content="Discover inspiring spiritual literature, guided journals, kids activity books, and authentic Vedic wisdom published for modern readers.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-books.jpg">
+
+    <!-- Fonts & CDNs -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Spiritual Books & Sacred Journals",
+      "description": "Curated spiritual publications including Bhagavad Gita guides, journals, kids books, and coloring books.",
+      "url": "https://sanatanahub.com/books.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Inline Styles tailored for Book-specific layouts using exact design tokens -->
+    <style>
+        /* Platforms Bar */
+        .platforms-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+            padding: 1.2rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+        }
+        .platform-tag {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        body.dark-mode .platform-tag {
+            color: #FFFFFF;
+        }
+        .platform-tag i {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+
+        /* Categories Bar */
+        .category-pills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: 2rem;
+        }
+        .category-pill {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .category-pill:hover,
+        .category-pill.active {
+            background: var(--accent-gold);
+            color: #FFFFFF;
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+            transform: translateY(-2px);
+        }
+
+        /* Books Grid Layout */
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .book-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        .book-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-gold);
+        }
+        .book-cover-wrapper {
+            height: 260px;
+            width: 100%;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .book-cover-placeholder {
+            width: 130px;
+            height: 180px;
+            background: var(--card-bg);
+            border: 2px solid var(--accent-gold);
+            border-radius: var(--radius-sm);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0.8rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        .book-card:hover .book-cover-placeholder {
+            transform: scale(1.05) rotate(-2deg);
+        }
+        .book-cover-placeholder i {
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 0.5rem;
+        }
+        .book-cover-placeholder span {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 0.75rem;
+            line-height: 1.1;
+            color: var(--primary);
+        }
+        body.dark-mode .book-cover-placeholder span {
+            color: #FFFFFF;
+        }
+        .book-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dark));
+            color: #FFFFFF;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.25rem 0.65rem;
+            border-radius: 20px;
+            text-transform: uppercase;
+        }
+        .book-details {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .book-category {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.3rem;
+        }
+        .book-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+        .book-description {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .book-stores {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+        .book-footer {
+            border-top: 1px solid rgba(212, 175, 55, 0.15);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        /* Why Read Cards */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+        }
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.2rem auto;
+            color: var(--accent-gold);
+            font-size: 1.6rem;
+        }
+
+        /* FAQ Layout */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 2.5rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .faq-question {
+            color: #FFFFFF;
+        }
+        .faq-answer {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* CTA Banner */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <header class="header scrolled">
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal">
+        <div class="search-close" id="searchClose"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search articles, books, stotras, quizzes...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header" id="header">
         <nav class="navbar">
-            <a href="index.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-om"></i></div><span>Sanatana Hub</span></a>
-            <ul class="nav-links">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+                <li><a href="stotras.html" class="nav-link">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link">Meditation</a></li>
                 <li><a href="books.html" class="nav-link active">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <div class="icon-btn" id="searchOpen" title="Search"><i class="fa-solid fa-magnifying-glass"></i></div>
+                <div class="icon-btn" id="themeToggle" title="Toggle Theme"><i class="fa-solid fa-moon"></i></div>
+                <div class="hamburger" id="hamburger"><i class="fa-solid fa-bars"></i></div>
+            </div>
         </nav>
     </header>
 
-    <section class="section-padding" style="margin-top: 100px;">
-        <div class="text-center">
-            <h1 class="section-title">Spiritual Digital Library</h1>
-            <div class="gold-divider"></div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="min-height: 55vh; padding-top: 140px; padding-bottom: 60px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="hero-badge"><i class="fa-solid fa-book-open"></i> Digital & Print Library</div>
+                    <h1 class="hero-title">Spiritual <span class="gold-text">Books & Journals</span></h1>
+                    <p class="hero-subtitle">Discover curated scriptures, guided gratitude journals, kids learning workbooks, and meditative coloring guides crafted for true inner growth.</p>
+                    
+                    <!-- Availability Platforms Bar -->
+                    <div class="platforms-bar">
+                        <span class="platform-tag"><i class="fa-brands fa-amazon"></i> Amazon Kindle & Paperback</span>
+                        <span class="platform-tag"><i class="fa-brands fa-google-play"></i> Google Play Books</span>
+                        <span class="platform-tag"><i class="fa-solid fa-gem"></i> Gumroad Digital Downloads</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
+        <!-- Category Filter Pills -->
+        <section class="section-padding" style="padding-top: 20px; padding-bottom: 20px;">
+            <div class="category-pills reveal-up">
+                <button class="category-pill active"><i class="fa-solid fa-border-all"></i> All Publications</button>
+                <button class="category-pill"><i class="fa-solid fa-dharmachakra"></i> Bhagavad Gita Books</button>
+                <button class="category-pill"><i class="fa-solid fa-book-journal-whills"></i> Journals & Gratitude</button>
+                <button class="category-pill"><i class="fa-solid fa-child-reaching"></i> Kids Activity Books</button>
+                <button class="category-pill"><i class="fa-solid fa-palette"></i> Coloring Books</button>
+            </div>
+        </section>
+
+        <!-- Featured Books Grid (12 Premium Cards) -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Explore Publications</span>
+                <h2 class="section-title">Featured Books</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="books-grid reveal-up">
+                <!-- Book 1 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Best Seller</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-dharmachakra"></i>
+                            <span>GITA FOR DAILY LIFE</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Bhagavad Gita Books</span>
+                        <h3 class="book-title">Bhagavad Gita for Daily Living</h3>
+                        <p class="book-description">A practical verse-by-verse guide explaining how to apply eternal Gita principles to modern career and peace of mind.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon" title="Amazon"></i>
+                            <i class="fa-brands fa-google-play" title="Google Play Books"></i>
+                            <i class="fa-solid fa-gem" title="Gumroad"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 2 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Guided</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-feather"></i>
+                            <span>SATTVA JOURNAL</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Journals & Gratitude</span>
+                        <h3 class="book-title">The Daily Sattva Gratitude Journal</h3>
+                        <p class="book-description">A 90-day spiritual prompt workbook designed to cultivate mindfulness, morning prayer reflection, and evening peace.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon" title="Amazon"></i>
+                            <i class="fa-solid fa-gem" title="Gumroad PDF"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 3 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">For Kids</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>BALA VEDIC</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Kids Activity Books</span>
+                        <h3 class="book-title">Little Vedic Explorers Activity Book</h3>
+                        <p class="book-description">Fun puzzles, shloka tracing, and stories from Ramayana and Mahabharata formatted specifically for young minds.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon" title="Amazon"></i>
+                            <i class="fa-brands fa-google-play" title="Google Play Books"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 4 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Creative</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-palette"></i>
+                            <span>MANDALA DEVOTION</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Coloring Books</span>
+                        <h3 class="book-title">Sacred Deities & Mandala Coloring</h3>
+                        <p class="book-description">Meditative art therapy featuring 50 intricate illustrations of Hindu deities, yantras, and sacred lotus patterns.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon" title="Amazon Paperback"></i>
+                            <i class="fa-solid fa-gem" title="Gumroad Printable"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 5 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Scripture</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-scroll"></i>
+                            <span>GITA ESSENCE</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Bhagavad Gita Books</span>
+                        <h3 class="book-title">Essence of Bhagavad Gita: 108 Key Verses</h3>
+                        <p class="book-description">Translates 108 crucial verses into clear English with Sanskrit transliteration and insightful commentaries.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-brands fa-google-play"></i>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 6 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Mindfulness</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-spa"></i>
+                            <span>SANKALPA PLANNER</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Journals & Gratitude</span>
+                        <h3 class="book-title">Sankalpa: Vedic Goal & Intentional Planner</h3>
+                        <p class="book-description">Align your personal and professional life goals with Dharmic values and structured self-reflection logs.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 7 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Stories</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                            <span>VEDIC HEROES</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Kids Activity Books</span>
+                        <h3 class="book-title">Stories of Great Vedic Heroes</h3>
+                        <p class="book-description">Short illustrated tales of courage, truth, and devotion featuring Dhruva, Prahlad, and Abhimanyu.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-brands fa-google-play"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 8 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Art & Prayer</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-paintbrush"></i>
+                            <span>GANESHA COLORING</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Coloring Books</span>
+                        <h3 class="book-title">Shri Ganesha Meditative Coloring Book</h3>
+                        <p class="book-description">30 artistic line drawings of Lord Ganesha accompanied by simple shlokas and translations for inner peace.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 9 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Philosophy</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-lightbulb"></i>
+                            <span>KARMA & FREEDOM</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Bhagavad Gita Books</span>
+                        <h3 class="book-title">Mastering Karma: Liberation Through Action</h3>
+                        <p class="book-description">A deep-dive analytical study into Karma Yoga, duty, desireless action, and spiritual liberation.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-brands fa-google-play"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 10 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Devotional</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-heart"></i>
+                            <span>BHAKTI JOURNAL</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Journals & Gratitude</span>
+                        <h3 class="book-title">Bhakti Yoga Daily Reflection Journal</h3>
+                        <p class="book-description">Cultivate love and surrender through daily prayer trackers, mantra logging, and inspirational quotes.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 11 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Sanskrit</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-pen-fancy"></i>
+                            <span>SHLOKA TRACING</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Kids Activity Books</span>
+                        <h3 class="book-title">My First Sanskrit Shloka Copybook</h3>
+                        <p class="book-description">Guided handwriting practice for kids to learn Devanagari script alongside simple everyday prayers.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book 12 -->
+                <div class="book-card">
+                    <div class="book-cover-wrapper">
+                        <span class="book-badge">Art</span>
+                        <div class="book-cover-placeholder">
+                            <i class="fa-solid fa-sun"></i>
+                            <span>RAMAYANA ART</span>
+                        </div>
+                    </div>
+                    <div class="book-details">
+                        <span class="book-category">Coloring Books</span>
+                        <h3 class="book-title">The Ramayana Epic Art & Coloring Journey</h3>
+                        <p class="book-description">Chronological scenes from Ayodhya to Lanka rendered into serene line art for meditative coloring.</p>
+                        <div class="book-stores">
+                            <span>Available on:</span>
+                            <i class="fa-brands fa-amazon"></i>
+                            <i class="fa-brands fa-google-play"></i>
+                        </div>
+                        <div class="book-footer">
+                            <a href="#" class="btn btn-gold" style="width: 100%; padding: 0.6rem; font-size: 0.85rem;"><i class="fa-solid fa-book-open"></i> View Book</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Read Our Books -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Authentic Wisdom</span>
+                <h2 class="section-title">Why Read Our Publications?</h2>
+                <div class="gold-divider"></div>
+            </div>
+            
+            <div class="features-grid reveal-up">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-certificate"></i></div>
+                    <h3>Authentic Scriptures</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Rooted directly in traditional commentaries while preserving original Sanskrit integrity.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h3>Modern Relevance</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Written in clear, engaging language designed for contemporary lifestyle integration.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-laptop-house"></i></div>
+                    <h3>Multi-Format Access</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Instantly available worldwide in Paperback, Kindle eBook, Google Books, and printable PDFs.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+                    <h3>Family Friendly</h3>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Thoughtfully designed materials suitable for readers of all ages—from kids to elders.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Frequently Asked Questions (FAQ) -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Got Questions?</span>
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="faq-wrapper reveal-up">
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> In what formats are these books available?</div>
+                    <div class="faq-answer">Our books are available in physical Paperback on Amazon, digital eBook formats on Google Play Books and Amazon Kindle, and instant downloadable PDF workbooks on Gumroad.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Are these books beginner-friendly for someone new to Sanatana Dharma?</div>
+                    <div class="faq-answer">Yes, absolutely! Every publication includes clear English translations, contextual introductions, and practical breakdowns suitable for beginners as well as seasoned seekers.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> Can I print the digital PDF workbooks downloaded from Gumroad?</div>
+                    <div class="faq-answer">Yes! PDFs purchased via Gumroad are optimized for high-quality home or commercial printing, making them perfect for repeat daily journaling or kids coloring sessions.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 20px;">
+            <div class="cta-banner reveal-up">
+                <div style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-om"></i></div>
+                <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Start Your Spiritual Journey Today</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem auto; color: rgba(255, 255, 255, 0.8); font-size: 1rem;">Immerse yourself in authentic wisdom. Browse our complete library across major digital and paperback bookstores.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="https://amazon.com" target="_blank" class="btn btn-gold"><i class="fa-brands fa-amazon"></i> Shop on Amazon</a>
+                    <a href="articles.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-compass"></i> Explore Free Articles</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop"><i class="fa-solid fa-arrow-up"></i></div>
+
+    <!-- Existing Scripts -->
     <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
+
