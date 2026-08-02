@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Privacy Policy — Sanatana Hub</title>
+    <meta name="title" content="Privacy Policy — Sanatana Hub">
+    <meta name="description" content="Read the Privacy Policy for Sanatana Hub. Understand how we collect, use, safeguard, and protect your personal data, cookies, and digital privacy.">
+    <link rel="canonical" href="https://sanatanahub.com/privacy-policy.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/privacy-policy.html">
+    <meta property="og:title" content="Privacy Policy — Sanatana Hub">
+    <meta property="og:description" content="Read the Privacy Policy for Sanatana Hub. Learn how we respect your privacy, utilize cookies, and safeguard user data.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-privacy.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/privacy-policy.html">
+    <meta property="twitter:title" content="Privacy Policy — Sanatana Hub">
+    <meta property="twitter:description" content="Read the Privacy Policy for Sanatana Hub. Learn how we respect your privacy, utilize cookies, and safeguard user data.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-privacy.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Privacy Policy",
+      "description": "Privacy Policy for Sanatana Hub explaining information collection, cookies, Google AdSense, Analytics, and data safety.",
+      "url": "https://sanatanahub.com/privacy-policy.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Page-Specific Custom Inline Styles -->
+    <style>
+        .policy-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        /* Table of Contents Styling */
+        .toc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            backdrop-filter: blur(12px);
+            box-shadow: var(--shadow-gold);
+            margin-bottom: 2rem;
+        }
+        .toc-title {
+            font-family: var(--font-heading);
+            font-size: 1.35rem;
+            color: var(--accent-gold);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .toc-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 0.75rem 1.5rem;
+        }
+        .toc-list li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition);
+        }
+        body.dark-mode .toc-list li a {
+            color: rgba(255, 255, 255, 0.85);
+        }
+        .toc-list li a:hover {
+            color: var(--accent-gold);
+            transform: translateX(4px);
+        }
+
+        /* Glassmorphism Section Cards */
+        .policy-section-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem;
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-md);
+            scroll-margin-top: 100px;
+            transition: var(--transition);
+        }
+        .policy-section-card:hover {
+            border-color: rgba(212, 175, 55, 0.4);
+        }
+        .policy-heading {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .policy-heading {
+            color: var(--accent-gold);
+        }
+        .policy-body {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+        .policy-body p {
+            margin-bottom: 1rem;
+        }
+        .policy-body p:last-child {
+            margin-bottom: 0;
+        }
+        .policy-body ul {
+            margin: 0.75rem 0 1rem 1.5rem;
+            padding: 0;
+        }
+        .policy-body ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA Banner Style */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+        <div class="search-close" id="searchClose" aria-label="Close search"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search privacy terms, cookies, policy...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+                <li><a href="stotras.html" class="nav-link">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link">Meditation</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchOpen" title="Search" aria-label="Open Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" style="min-height: 48vh; padding-top: 140px; padding-bottom: 50px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Privacy & Data Safety</div>
+                    <h1 class="hero-title">Privacy <span class="gold-text">Policy</span></h1>
+                    <p class="hero-subtitle">Learn how Sanatana Hub collects, uses, and protects your information while maintaining total transparency and respect for your digital rights.</p>
+                    <p style="font-size: 0.85rem; color: var(--accent-gold); margin-top: 0.75rem;">Last Updated: August 2026</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="section-padding">
+            <div class="policy-container">
+
+                <!-- Table of Contents Card -->
+                <div class="toc-card reveal-up">
+                    <div class="toc-title"><i class="fa-solid fa-list-ol"></i> Table of Contents</div>
+                    <ul class="toc-list">
+                        <li><a href="#introduction"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 1. Introduction</a></li>
+                        <li><a href="#info-collect"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 2. Information We Collect</a></li>
+                        <li><a href="#how-we-use"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 3. How We Use Information</a></li>
+                        <li><a href="#cookies"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 4. Cookies Policy</a></li>
+                        <li><a href="#adsense"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 5. Google AdSense</a></li>
+                        <li><a href="#analytics"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 6. Google Analytics</a></li>
+                        <li><a href="#third-party"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 7. Third-Party Links</a></li>
+                        <li><a href="#data-security"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 8. Data Security</a></li>
+                        <li><a href="#childrens-privacy"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 9. Children's Privacy</a></li>
+                        <li><a href="#user-rights"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 10. User Rights</a></li>
+                        <li><a href="#updates"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 11. Updates to This Policy</a></li>
+                        <li><a href="#contact-info"><i class="fa-solid fa-chevron-right" style="font-size: 0.75rem; color: var(--accent-gold);"></i> 12. Contact Information</a></li>
+                    </ul>
+                </div>
+
+                <!-- 1. Introduction -->
+                <article class="policy-section-card reveal-up" id="introduction">
+                    <h2 class="policy-heading"><i class="fa-solid fa-circle-info" style="color: var(--accent-gold);"></i> 1. Introduction</h2>
+                    <div class="policy-body">
+                        <p>Welcome to <strong>Sanatana Hub</strong> ("we," "our," or "us"). We are committed to protecting your privacy and ensuring that your personal data is handled responsibly. This Privacy Policy outlines how we handle information collected when you visit <strong>https://sanatanahub.com</strong> or interact with our digital offerings, interactive quizzes, books, and media.</p>
+                        <p>By accessing or using our website, you agree to the practices described in this policy. If you do not agree with any part of this policy, please discontinue use of our website.</p>
+                    </div>
+                </article>
+
+                <!-- 2. Information We Collect -->
+                <article class="policy-section-card reveal-up" id="info-collect">
+                    <h2 class="policy-heading"><i class="fa-solid fa-database" style="color: var(--accent-gold);"></i> 2. Information We Collect</h2>
+                    <div class="policy-body">
+                        <p>We collect two basic types of information when you interact with Sanatana Hub:</p>
+                        <ul>
+                            <li><strong>Personal Information Provided Voluntarily:</strong> When you submit a contact form, subscribe to updates, or participate in interactive sessions, we may collect information such as your full name, email address, and subject/message details.</li>
+                            <li><strong>Automatically Collected Non-Personal Data:</strong> Technical information automatically logged when visiting our platform, including IP address, browser type, device information, operating system, language preferences, referring URLs, and interaction patterns with our site pages.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 3. How We Use Information -->
+                <article class="policy-section-card reveal-up" id="how-we-use">
+                    <h2 class="policy-heading"><i class="fa-solid fa-gears" style="color: var(--accent-gold);"></i> 3. How We Use Information</h2>
+                    <div class="policy-body">
+                        <p>The information we collect is utilized strictly for purpose-driven operations, including:</p>
+                        <ul>
+                            <li>Operating, maintaining, and enhancing the Sanatana Hub user experience.</li>
+                            <li>Responding directly to user inquiries, support requests, and feedback.</li>
+                            <li>Personalizing content delivery, theme preferences, and quiz performance metrics.</li>
+                            <li>Monitoring technical performance, preventing fraudulent activity, and ensuring system security.</li>
+                            <li>Complying with applicable legal obligations.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 4. Cookies Policy -->
+                <article class="policy-section-card reveal-up" id="cookies">
+                    <h2 class="policy-heading"><i class="fa-solid fa-cookie-bite" style="color: var(--accent-gold);"></i> 4. Cookies Policy</h2>
+                    <div class="policy-body">
+                        <p>Sanatana Hub utilizes small text files placed on your device known as "Cookies" to improve platform functionality and remember your preference choices (such as Dark/Light mode selections).</p>
+                        <p>You can choose to disable or selectively turn off our cookies or third-party cookies in your browser settings. However, doing so may affect how you are able to interact with our site and other websites.</p>
+                    </div>
+                </article>
+
+                <!-- 5. Google AdSense -->
+                <article class="policy-section-card reveal-up" id="adsense">
+                    <h2 class="policy-heading"><i class="fa-solid fa-rectangle-ad" style="color: var(--accent-gold);"></i> 5. Google AdSense</h2>
+                    <div class="policy-body">
+                        <p>We may display advertisements served by Google AdSense. Google uses cookies (including the DART cookie) to serve ads based on users' visits to Sanatana Hub and other sites on the Internet.</p>
+                        <p>Users may opt out of personalized advertising by visiting <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Google Ad Settings</a>. You may also visit <a href="https://www.aboutads.info" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">aboutads.info</a> to opt out of a third-party vendor's use of cookies for personalized advertising.</p>
+                    </div>
+                </article>
+
+                <!-- 6. Google Analytics -->
+                <article class="policy-section-card reveal-up" id="analytics">
+                    <h2 class="policy-heading"><i class="fa-solid fa-chart-line" style="color: var(--accent-gold);"></i> 6. Google Analytics</h2>
+                    <div class="policy-body">
+                        <p>We use Google Analytics to analyze web traffic and understand visitor usage patterns. Google Analytics collects aggregate, non-personally identifiable information regarding visitor demographics and behavior on our site.</p>
+                        <p>To opt out of Google Analytics tracking across all websites, you can install the official <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style="color: var(--accent-gold); text-decoration: underline;">Google Analytics Opt-out Browser Add-on</a>.</p>
+                    </div>
+                </article>
+
+                <!-- 7. Third-Party Links -->
+                <article class="policy-section-card reveal-up" id="third-party">
+                    <h2 class="policy-heading"><i class="fa-solid fa-link" style="color: var(--accent-gold);"></i> 7. Third-Party Links</h2>
+                    <div class="policy-body">
+                        <p>Our website contains links to external websites, social platforms, and reference materials. Sanatana Hub has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites.</p>
+                        <p>We strongly advise you to review the Privacy Policy of every site you visit via an external link from our platform.</p>
+                    </div>
+                </article>
+
+                <!-- 8. Data Security -->
+                <article class="policy-section-card reveal-up" id="data-security">
+                    <h2 class="policy-heading"><i class="fa-solid fa-lock" style="color: var(--accent-gold);"></i> 8. Data Security</h2>
+                    <div class="policy-body">
+                        <p>We implement standard administrative, technical, and physical security measures to protect your information against unauthorized access, alteration, or disclosure. SSL encryption protocols are enforced site-wide.</p>
+                        <p>While we take rigorous precautions, please note that no method of transmission over the Internet or method of electronic storage is 100% secure.</p>
+                    </div>
+                </article>
+
+                <!-- 9. Children's Privacy -->
+                <article class="policy-section-card reveal-up" id="childrens-privacy">
+                    <h2 class="policy-heading"><i class="fa-solid fa-child" style="color: var(--accent-gold);"></i> 9. Children's Privacy</h2>
+                    <div class="policy-body">
+                        <p>Protecting children's privacy is especially important to us. Although our <em>Kids Corner</em> features moral and educational stories designed for family audiences, we do not knowingly collect personal identifiable information from children under the age of 13.</p>
+                        <p>If you believe your child has provided personal information on our website, please contact us immediately, and we will promptly remove such information from our records.</p>
+                    </div>
+                </article>
+
+                <!-- 10. User Rights -->
+                <article class="policy-section-card reveal-up" id="user-rights">
+                    <h2 class="policy-heading"><i class="fa-solid fa-user-shield" style="color: var(--accent-gold);"></i> 10. User Rights</h2>
+                    <div class="policy-body">
+                        <p>Depending on your location, you hold specific rights regarding your personal information, including:</p>
+                        <ul>
+                            <li><strong>Right to Access:</strong> Request a copy of the personal data we hold about you.</li>
+                            <li><strong>Right to Rectification:</strong> Request correction of inaccurate or incomplete details.</li>
+                            <li><strong>Right to Erasure:</strong> Request deletion of your personal data stored with us.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <!-- 11. Updates to This Policy -->
+                <article class="policy-section-card reveal-up" id="updates">
+                    <h2 class="policy-heading"><i class="fa-solid fa-arrows-rotate" style="color: var(--accent-gold);"></i> 11. Updates to This Policy</h2>
+                    <div class="policy-body">
+                        <p>Sanatana Hub reserves the right to update or modify this Privacy Policy at any time. Any changes will be published directly on this page with an updated revision date. We encourage visitors to review this page periodically.</p>
+                    </div>
+                </article>
+
+                <!-- 12. Contact Information -->
+                <article class="policy-section-card reveal-up" id="contact-info">
+                    <h2 class="policy-heading"><i class="fa-solid fa-envelope-open-text" style="color: var(--accent-gold);"></i> 12. Contact Information</h2>
+                    <div class="policy-body">
+                        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data handling practices, please contact us:</p>
+                        <p><strong>Email:</strong> privacy@sanatanahub.com / contact@sanatanahub.com<br>
+                        <strong>Website:</strong> <a href="contact.html" style="color: var(--accent-gold); text-decoration: underline;">https://sanatanahub.com/contact.html</a></p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 10px;">
+            <div class="cta-banner reveal-up" style="max-width: 1000px; margin: 0 auto;">
+                <div style="font-size: 2.2rem; color: var(--accent-gold); margin-bottom: 0.75rem;"><i class="fa-solid fa-compass"></i></div>
+                <h2 style="font-size: 2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Explore Timeless Wisdom Safely</h2>
+                <p style="max-width: 600px; margin: 0 auto 1.75rem auto; color: rgba(255, 255, 255, 0.85); font-size: 0.95rem;">Immerse yourself in authentic articles, spiritual stotras, and educational quizzes.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="index.html" class="btn btn-gold"><i class="fa-solid fa-house"></i> Return Home</a>
+                    <a href="contact.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-envelope"></i> Contact Us</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Existing Scripts -->
+    <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
+</body>
+</html>
