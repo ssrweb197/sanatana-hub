@@ -3,30 +3,661 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meditation & Mindfulness — Sanatana Hub</title>
+    
+    <!-- Primary Meta Tags -->
+    <title>Meditation & Inner Peace — Sanatana Hub</title>
+    <meta name="title" content="Meditation & Inner Peace — Sanatana Hub">
+    <meta name="description" content="Discover guided meditation techniques, pranayama breathing exercises, mindfulness practices, daily spiritual routines, and interactive tools for inner peace.">
+    <link rel="canonical" href="https://sanatanahub.com/meditation.html">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="manifest.json">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sanatanahub.com/meditation.html">
+    <meta property="og:title" content="Meditation & Inner Peace — Sanatana Hub">
+    <meta property="og:description" content="Explore ancient Vedic pranayama, guided dhyana, interactive Japa counter, meditation timer, and mindfulness techniques for ultimate mental clarity.">
+    <meta property="og:image" content="https://sanatanahub.com/assets/images/og-meditation.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://sanatanahub.com/meditation.html">
+    <meta property="twitter:title" content="Meditation & Inner Peace — Sanatana Hub">
+    <meta property="twitter:description" content="Explore ancient Vedic pranayama, guided dhyana, interactive Japa counter, meditation timer, and mindfulness techniques for ultimate mental clarity.">
+    <meta property="twitter:image" content="https://sanatanahub.com/assets/images/og-meditation.jpg">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Existing CSS Bundles -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/responsive.css">
+
+    <!-- Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Meditation & Inner Peace",
+      "description": "Guided meditation, mindfulness, breathing practices, and interactive meditation tools.",
+      "url": "https://sanatanahub.com/meditation.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Sanatana Hub",
+        "logo": "https://sanatanahub.com/assets/logo/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Inline Custom Styles tailored for Meditation Components -->
+    <style>
+        /* Pulse Animation for Meditation Ring */
+        @keyframes zenPulse {
+            0% { transform: scale(0.98); opacity: 0.8; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            50% { transform: scale(1.02); opacity: 1; box-shadow: 0 0 0 20px rgba(212, 175, 55, 0); }
+            100% { transform: scale(0.98); opacity: 0.8; box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .zen-orb-hero {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-gold) 0%, rgba(11, 31, 58, 0.2) 70%);
+            border: 2px solid var(--accent-gold);
+            margin: 0 auto 1.5rem auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            animation: zenPulse 4s infinite ease-in-out;
+        }
+
+        /* Feature & Benefit Cards Grid */
+        .meditation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .meditation-card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .meditation-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent-gold);
+            box-shadow: var(--shadow-gold);
+        }
+        .card-icon-wrapper {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            margin-bottom: 1.25rem;
+        }
+
+        /* Breathing Exercises Grid */
+        .breathing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .breath-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+        }
+        .breath-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-4px);
+        }
+        .breath-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Interactive Tools Section */
+        .tools-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .tool-card {
+            background: linear-gradient(135deg, rgba(11, 31, 58, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem;
+            text-align: center;
+            position: relative;
+        }
+        .tool-counter {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            color: var(--accent-gold);
+            margin: 1rem 0;
+            font-weight: 700;
+        }
+
+        /* Video Section Placeholder Cards */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .video-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--glass-border);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+        .video-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+        }
+        .video-thumb {
+            position: relative;
+            height: 170px;
+            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .play-overlay {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+            transition: var(--transition);
+        }
+        .video-card:hover .play-overlay {
+            transform: scale(1.15);
+        }
+
+        /* Daily Routine Timeline */
+        .routine-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        .routine-box {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        /* FAQ Styling */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 2.5rem auto 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem;
+        }
+        .faq-question {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        body.dark-mode .faq-question {
+            color: #FFFFFF;
+        }
+        .faq-answer {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Banner CTA */
+        .cta-banner {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border: 1px solid var(--accent-gold);
+            border-radius: var(--radius-lg);
+            padding: 4rem 2rem;
+            text-align: center;
+            color: #FFFFFF;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
 </head>
 <body>
-    <header class="header scrolled">
-        <nav class="navbar">
-            <a href="index.html" class="logo"><div class="logo-icon"><i class="fa-solid fa-om"></i></div><span>Sanatana Hub</span></a>
-            <ul class="nav-links">
+    <canvas id="mouse-glow"></canvas>
+
+    <!-- Global Preloader -->
+    <div id="preloader">
+        <div class="lotus-container">
+            <div class="spinner-ring"></div>
+            <i class="fa-solid fa-om lotus-icon"></i>
+        </div>
+        <div class="loader-text">SANATANA HUB</div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="search-modal" id="searchModal" aria-hidden="true">
+        <div class="search-close" id="searchClose" aria-label="Close search"><i class="fa-solid fa-xmark"></i></div>
+        <div class="search-box">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search meditation guides, pranayama, mantras...">
+            <div class="search-results" id="searchResults"></div>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header class="header" id="header">
+        <nav class="navbar" aria-label="Main Navigation">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-om"></i></div>
+                <span>Sanatana Hub</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="meditation.html" class="nav-link active">Meditation</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+                <li><a href="stotras.html" class="nav-link">Stotras</a></li>
+                <li><a href="meditation.html" class="nav-link active" aria-current="page">Meditation</a></li>
+                <li><a href="books.html" class="nav-link">Books</a></li>
+                <li><a href="kids.html" class="nav-link">Kids</a></li>
+                <li><a href="quizzes.html" class="nav-link">Quizzes</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            <div class="nav-actions">
+                <button class="icon-btn" id="searchOpen" title="Search" aria-label="Open Search"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="icon-btn" id="themeToggle" title="Toggle Theme" aria-label="Toggle Theme"><i class="fa-solid fa-moon"></i></button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </nav>
     </header>
 
-    <section class="section-padding" style="margin-top: 100px;">
-        <div class="text-center">
-            <h1 class="section-title">Meditation & Breathing</h1>
-            <div class="gold-divider"></div>
-        </div>
-    </section>
+    <main>
+        <!-- Hero Section with Animated Orb -->
+        <section class="hero" style="min-height: 60vh; padding-top: 140px; padding-bottom: 60px;">
+            <canvas id="petals-canvas"></canvas>
+            <div class="hero-container" style="grid-template-columns: 1fr; text-align: center;">
+                <div class="hero-content reveal-up" style="max-width: 850px; margin: 0 auto;">
+                    <div class="zen-orb-hero">
+                        <i class="fa-solid fa-spa"></i>
+                    </div>
+                    <div class="hero-badge"><i class="fa-solid fa-peace"></i> Dhyana & Awareness</div>
+                    <h1 class="hero-title">Meditation & <span class="gold-text">Inner Peace</span></h1>
+                    <p class="hero-subtitle">Discover ancient meditation techniques, mindfulness practices, rhythmic breathing exercises, and spiritual tools designed to quiet the mind and enrich daily living.</p>
+                </div>
+            </div>
+        </section>
 
+        <!-- Guided Meditation Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Guided Practices</span>
+                <h2 class="section-title">Guided Meditation Sessions</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="meditation-grid reveal-up">
+                <!-- Session 1 -->
+                <div class="meditation-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <span class="breath-badge">For Beginners</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Beginner Meditation</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">Learn basic posture, breath awareness, and gentle mind relaxation methods to establish a daily habit.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start;">Begin Session</a>
+                </div>
+
+                <!-- Session 2 -->
+                <div class="meditation-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <span class="breath-badge">Quick Reset</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">5-Minute Meditation</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">A swift mental reset for busy workdays. Pause, re-center your energy, and restore immediate focus.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start;">Begin Session</a>
+                </div>
+
+                <!-- Session 3 -->
+                <div class="meditation-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                    </div>
+                    <span class="breath-badge">Deep Calm</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">10-Minute Meditation</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">Immerse yourself in balanced breathing and body scanning for sustained physical and emotional calm.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start;">Begin Session</a>
+                </div>
+
+                <!-- Session 4 -->
+                <div class="meditation-card">
+                    <div class="card-icon-wrapper">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <span class="breath-badge">Restoration</span>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Deep Relaxation</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; flex-grow: 1;">Yoga Nidra inspired guided rest to alleviate deep anxiety, muscle tension, and chronic stress.</p>
+                    <a href="#" class="btn btn-outline" style="padding: 0.5rem 1rem; font-size: 0.85rem; align-self: flex-start;">Begin Session</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Breathing Techniques & Pranayama -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Pranayama Wisdom</span>
+                <h2 class="section-title">Breathing Techniques & Mindfulness</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="breathing-grid reveal-up">
+                <div class="breath-card">
+                    <i class="fa-solid fa-wind" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Anulom Vilom</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Alternate nostril breathing to harmonize left and right brain hemispheres and balance energy channels.</p>
+                </div>
+                <div class="breath-card">
+                    <i class="fa-solid fa-square-full" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Box Breathing</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Inhale 4s, Hold 4s, Exhale 4s, Hold 4s. A proven tactical breath control practice for instant stability.</p>
+                </div>
+                <div class="breath-card">
+                    <i class="fa-solid fa-lungs" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Deep Diaphragmatic</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Belly breathing that stimulates the vagus nerve, lowering heart rate and relaxing the body.</p>
+                </div>
+                <div class="breath-card">
+                    <i class="fa-solid fa-brain" style="font-size: 2rem; color: var(--accent-gold); margin-bottom: 1rem;"></i>
+                    <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem;">Mindfulness (Sakshi)</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted);">Cultivate detached witness awareness, allowing thoughts to pass like clouds without attachment.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meditation Benefits -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Science & Tradition</span>
+                <h2 class="section-title">Benefits of Daily Practice</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="meditation-grid reveal-up">
+                <div class="meditation-card" style="text-align: center; align-items: center;">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <h4>Reduces Stress & Anxiety</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Lowers cortisol production, reducing physical symptoms of strain and promoting inner equilibrium.</p>
+                </div>
+                <div class="meditation-card" style="text-align: center; align-items: center;">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-bullseye"></i></div>
+                    <h4>Enhances Focus & Clarity</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Sharpens concentration, aids memory retention, and reduces mental fatigue during demanding tasks.</p>
+                </div>
+                <div class="meditation-card" style="text-align: center; align-items: center;">
+                    <div class="card-icon-wrapper"><i class="fa-solid fa-face-smile"></i></div>
+                    <h4>Emotional Stability</h4>
+                    <p style="font-size: 0.88rem; color: var(--text-muted);">Fosters self-awareness, mood regulation, and a compassionate attitude towards self and others.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Daily Meditation Routine -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Rhythm of Life</span>
+                <h2 class="section-title">Daily Meditation Routine</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="routine-grid reveal-up">
+                <div class="routine-box">
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600;">06:00 AM</span>
+                    <h4 style="margin: 0.5rem 0;">Morning Clarity</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">10 minutes of Pranayama & Surya Arghya awareness for high vitality.</p>
+                </div>
+                <div class="routine-box">
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600;">01:00 PM</span>
+                    <h4 style="margin: 0.5rem 0;">Afternoon Reset</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">5 minutes of Box Breathing to clear midday fatigue and sharpen focus.</p>
+                </div>
+                <div class="routine-box">
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600;">06:30 PM</span>
+                    <h4 style="margin: 0.5rem 0;">Evening Unwind</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">10 minutes of Light Dhayana or OM Chanting during twilight (Sandhya).</p>
+                </div>
+                <div class="routine-box">
+                    <span style="font-size: 0.8rem; color: var(--accent-gold); font-weight: 600;">09:30 PM</span>
+                    <h4 style="margin: 0.5rem 0;">Night Deep Rest</h4>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin: 0;">5 minutes of gentle body awareness to promote restorative sleep.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Spiritual Tools -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Digital Utilities</span>
+                <h2 class="section-title">Spiritual & Practice Tools</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="tools-wrapper reveal-up">
+                <!-- Japa Counter -->
+                <div class="tool-card">
+                    <i class="fa-solid fa-dharmachakra" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                    <h4 style="margin-top: 0.5rem;">Japa Counter</h4>
+                    <div class="tool-counter" id="japaCount">0</div>
+                    <div style="display: flex; gap: 0.5rem; justify-content: center;">
+                        <button class="btn btn-gold" onclick="document.getElementById('japaCount').innerText = parseInt(document.getElementById('japaCount').innerText) + 1" style="padding: 0.4rem 1rem;">Count +1</button>
+                        <button class="btn btn-outline" onclick="document.getElementById('japaCount').innerText = 0" style="padding: 0.4rem 0.8rem;">Reset</button>
+                    </div>
+                </div>
+
+                <!-- Meditation Timer -->
+                <div class="tool-card">
+                    <i class="fa-solid fa-hourglass-start" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                    <h4 style="margin-top: 0.5rem;">Meditation Timer</h4>
+                    <div class="tool-counter">05:00</div>
+                    <button class="btn btn-gold" style="padding: 0.4rem 1.2rem;">Start Timer</button>
+                </div>
+
+                <!-- OM Chanting -->
+                <div class="tool-card">
+                    <i class="fa-solid fa-om" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                    <h4 style="margin-top: 0.5rem;">OM Vibration</h4>
+                    <div class="tool-counter" style="font-size: 1.5rem; margin: 1.5rem 0;">432 Hz Tone</div>
+                    <button class="btn btn-gold" style="padding: 0.4rem 1.2rem;"><i class="fa-solid fa-play"></i> Play Sound</button>
+                </div>
+
+                <!-- Sacred Mantras -->
+                <div class="tool-card">
+                    <i class="fa-solid fa-book-journal-whills" style="font-size: 2rem; color: var(--accent-gold);"></i>
+                    <h4 style="margin-top: 0.5rem;">Mantra Bank</h4>
+                    <div class="tool-counter" style="font-size: 1.1rem; margin: 1.5rem 0; font-weight: 400; font-style: italic;">"Om Shanti Shanti Shanti"</div>
+                    <a href="stotras.html" class="btn btn-outline" style="padding: 0.4rem 1rem; font-size: 0.8rem;">View All Mantras</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Videos Placeholder Section -->
+        <section class="section-padding" style="background: rgba(11, 31, 58, 0.02);">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Video Guides</span>
+                <h2 class="section-title">Featured Video Lessons</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="video-grid reveal-up">
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div style="padding: 1.25rem;">
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Mastering Breath Control</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">12 Mins • Step-by-Step Tutorial</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div style="padding: 1.25rem;">
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Evening Sound Bath & OM</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">20 Mins • Meditative Sounds</p>
+                    </div>
+                </div>
+                <div class="video-card">
+                    <div class="video-thumb">
+                        <div class="play-overlay"><i class="fa-solid fa-play"></i></div>
+                    </div>
+                    <div style="padding: 1.25rem;">
+                        <h4 style="font-size: 1.05rem; margin-bottom: 0.25rem;">Yoga Nidra for Deep Sleep</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">15 Mins • Guided Relaxation</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-padding">
+            <div class="text-center reveal-up">
+                <span class="section-tag">Frequently Asked Questions</span>
+                <h2 class="section-title">Meditation Guidance</h2>
+                <div class="gold-divider"></div>
+            </div>
+
+            <div class="faq-wrapper reveal-up">
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> How long should I meditate each day?</div>
+                    <div class="faq-answer">For beginners, starting with just 5 to 10 minutes daily is ideal. Consistency is far more effective than duration when establishing a mindfulness habit.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> What should I do if my mind wanders while meditating?</div>
+                    <div class="faq-answer">Mind-wandering is entirely natural. Whenever you notice a thought, gently acknowledge it without judgment and bring your focus back to your breath or chant.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question"><i class="fa-solid fa-circle-question" style="color: var(--accent-gold);"></i> What is the difference between Pranayama and Meditation?</div>
+                    <div class="faq-answer">Pranayama involves conscious regulation of the breath to balance life force energy (Prana), whereas Meditation (Dhyana) is the continuous flow of single-pointed awareness.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section-padding" style="padding-top: 20px;">
+            <div class="cta-banner reveal-up">
+                <div style="font-size: 2.5rem; color: var(--accent-gold); margin-bottom: 1rem;"><i class="fa-solid fa-spa"></i></div>
+                <h2 style="font-size: 2.2rem; color: #FFFFFF; margin-bottom: 0.8rem;">Start Your Meditation Journey Today</h2>
+                <p style="max-width: 600px; margin: 0 auto 2rem auto; color: rgba(255, 255, 255, 0.8); font-size: 1rem;">Experience lasting tranquility, heightened awareness, and personal growth with simple daily mindfulness practice.</p>
+                <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="stotras.html" class="btn btn-gold"><i class="fa-solid fa-hands-praying"></i> Explore Stotras</a>
+                    <a href="contact.html" class="btn btn-outline" style="border-color: #FFFFFF; color: #FFFFFF;"><i class="fa-solid fa-envelope"></i> Reach Out</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Shared Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Sanatana Hub</h3>
+                <p>A modern premium spiritual and educational content platform dedicated to inspiring minds and nurturing peace through authentic wisdom.</p>
+                <p class="gold-text" style="margin-top: 1rem;">Explore • Learn • Inspire</p>
+                <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" style="color: var(--accent-gold); font-size: 1.2rem;" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="footer-title">Navigation</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="articles.html">Articles</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="stotras.html">Stotras</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Resources</h4>
+                <ul class="footer-links">
+                    <li><a href="meditation.html">Meditation</a></li>
+                    <li><a href="quizzes.html">Quizzes</a></li>
+                    <li><a href="kids.html">Kids Corner</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Copyright Policy</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div>&copy; 2026 Sanatana Hub. All rights reserved.</div>
+            <div>Crafted with Devotion & Modern Tech</div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Scroll to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <!-- Existing Scripts -->
     <script src="js/script.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/slider.js"></script>
 </body>
 </html>
